@@ -1951,6 +1951,27 @@ services:
         - ./react:/usr/src/app/react
         - /usr/src/app/react/node_modules
 
+<<<<<<< HEAD
+### keycloak #####################################################
+    keycloak:
+      build:
+        context: ./keycloak
+        args:
+          - KEYCLOAK_VERSION=${KEYCLOAK_VERSION}
+      container_name: keycloak
+      environment:
+        - DB_ADDR=${KEYCLOAK_DB_ADDR}
+        - DB_PORT=${KEYCLOAK_DB_PORT}
+        - DB_DATABASE=${KEYCLOAK_DB_DATABASE}
+        - DB_SCHEMA=${KEYCLOAK_DB_SCHEMA}
+        - DB_USER=${KEYCLOAK_DB_USER}
+        - DB_PASSWORD=${KEYCLOAK_DB_PASSWORD}
+      networks:
+          - frontend
+          - backend
+      ports:
+        - "8088:8080"
+=======
 ### kafka ####################################################
     kafka:
       image: wurstmeister/kafka
@@ -1977,3 +1998,4 @@ services:
         ZK_HOSTS: zookeeper:2181
       networks:
         - backend
+>>>>>>> 09043c49921877d613b19330bcc39240c66dd5e1
